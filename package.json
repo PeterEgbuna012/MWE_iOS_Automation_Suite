@@ -1,0 +1,25 @@
+{
+  "name": "mwe-ios-automation-suite",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test:ios": "wdio run ./wdio.conf.ts",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "latest",
+    "@wdio/appium-service": "latest",
+    "@wdio/cli": "latest",
+    "@wdio/cucumber-framework": "latest",
+    "@wdio/globals": "^9.29.0",
+    "@wdio/local-runner": "latest",
+    "@wdio/spec-reporter": "latest",
+    "appium": "latest",
+    "appium-xcuitest-driver": "latest",
+    "date-fns": "latest",
+    "ts-node": "latest",
+    "typescript": "latest",
+    "webdriverio": "latest"
+  }
+}

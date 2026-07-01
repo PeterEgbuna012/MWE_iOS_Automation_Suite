@@ -1,0 +1,1 @@
+{"version":3,"file":"logsink.d.ts","sourceRoot":"","sources":["../../lib/logsink.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAC,UAAU,EAAC,MAAM,cAAc,CAAC;AA6C7C;;;;;;GAMG;AACH,wBAAsB,IAAI,CAAC,IAAI,EAAE,UAAU,GAAG,OAAO,CAAC,IAAI,CAAC,CA0D1D;AAED;;;GAGG;AACH,wBAAgB,KAAK,IAAI,IAAI,CAG5B;AA4KD;;;;;GAKG;AACH,wBAAgB,eAAe,CAAC,IAAI,EAAE,MAAM,GAAG,MAAM,CAEpD"}
