@@ -13,10 +13,12 @@ Scenario Outline: User taps input field keyboard is displayed, content is pushed
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button

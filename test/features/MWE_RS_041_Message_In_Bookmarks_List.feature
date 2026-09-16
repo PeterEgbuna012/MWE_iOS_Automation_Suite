@@ -13,8 +13,9 @@ Feature: MWE_RS_041 - Message in bookmarks list
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
-    When I click on "Reject" button
+    Then I wait for page to load
     Then I take a screenshot
+    When I click on "Reject" button
     Then The Worklist page is open
     Then I click on "BOOKMARK ICON" button
     Then I take a screenshot
@@ -24,5 +25,5 @@ Feature: MWE_RS_041 - Message in bookmarks list
 
 
     Examples:
-    | country | EnvCode        | username | password |
-    | Europe  | lucky-liger-8  | CBRUNS   | cbruns   |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

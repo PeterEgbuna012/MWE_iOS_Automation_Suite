@@ -20,12 +20,12 @@ Feature: MWE_RS_055 - Reset Application
     Then The Worklist page is open
     Then I take a screenshot
     Then I press the Hamburger icon
-    Then I click on "REST APPLICATION" button
+    Then I click on "Reset Application" button
     Then I take a screenshot
     Then I click on "OK" button
     Then I wait for page to load
     Then I take a screenshot
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

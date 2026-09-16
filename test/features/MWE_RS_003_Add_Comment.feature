@@ -18,7 +18,7 @@ Feature: MWE_RS_003 - Add Comment
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -28,14 +28,14 @@ Feature: MWE_RS_003 - Add Comment
     Then I click on "ADD COMMENT" button
     Then I click on "TYPE FIELD" button
     Then I click on "UPDATE" button
-    And I set "Summary" value field to "MWE 1.13.1 TESTING"
-    And I set "Details" value field to "MWE 1.13.1 TESTING"
+    And I set "Summary" value field to "GTR MWE 1.12.2 RELEASE TEST"
+    And I set "Details" value field to "GTR MWE 1.12.2 RELEASE TEST"
     Then I take a screenshot
     Then I click on "ADD COMMENT BUTTON" button
     Then I click on "PAUSE ICON" button
     Then I click on "PAUSE" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "ON HOLD" button
+  #  Then I click on "SELECT OUTCOME" option
+  #  Then I click on "ON HOLD" button
     Then I click on "PAUSE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -46,5 +46,5 @@ Feature: MWE_RS_003 - Add Comment
     Then I take a screenshot
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

@@ -18,6 +18,7 @@ Feature: MWE_RS_011 - Complete an assigned Task
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -27,7 +28,7 @@ Feature: MWE_RS_011 - Complete an assigned Task
     When I press "TASKS" widget
     When I tap on task with number "10."
    # Then "10" page appears
-    And I set "comments" value field to "MWE KAD 1.13.0 TESTING"
+    And I set "comments" value field to "GTR 1.12.2 MWE TESTING"
     Then I take a screenshot
     #Then I click on "Add Signature" button
     # this symbol is for circle button in task
@@ -40,7 +41,7 @@ Feature: MWE_RS_011 - Complete an assigned Task
     When I tap on task with number "20."
    # Then "20" page appears
     And I set "measurement input" value field to "1500"
-    And I set "comments" value field to "MWE KAD 1.13.0 TESTING"
+    And I set "comments" value field to "GTR 1.12.2 MWE TESTING"
     Then I take a screenshot
     Then I click on "" button
     When I click on "SIGN & COMPLETE" button
@@ -58,5 +59,5 @@ Feature: MWE_RS_011 - Complete an assigned Task
     Then I take a screenshot
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

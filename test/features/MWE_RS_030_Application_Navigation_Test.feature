@@ -16,9 +16,11 @@ Feature: MWE_RS_030 - Application Navigation Test
     And I switch to native view context
     And I see allow button
     Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I wait for page to load
     Then I take a screenshot
     Then I navigate to "notifications"

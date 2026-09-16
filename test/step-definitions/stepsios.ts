@@ -453,15 +453,13 @@ When(/^I click on "([^"]+)" button$/, async (buttonName: string) => {
 });
 
 
-When(/^I click on "([^"]+)" option$/, async (optionName: string) => {
-  await switchToNativeContext();
-  await basePage.clickOptionByName(optionName);
-});
-
-Then(/^I click on "([^"]+)" option$/, async (optionName: string) => {
-  await switchToNativeContext();
-  await basePage.clickOptionByName(optionName);
-});
+When(
+  /^I click on "([^"]+)" option$/,
+  async (optionName: string): Promise<void> => {
+    await switchToNativeContext();
+    await basePage.clickOptionByName(optionName);
+  }
+);
 
 Then('{string} text is displayed', async (text: string) => {
   await switchToNativeContext();
@@ -707,7 +705,6 @@ Then(/^the Follow-On page should be "(Shown|Hidden)"$/, async (flag: PageFlag) =
 
 Then('I {string} {word} work order', async (action: string, positionWord: string) => {
   await switchToNativeContext();
-
   const position = workOrderOrdinals[positionWord.toLowerCase()];
 
   if (!position) {
@@ -771,3 +768,40 @@ Then('I wait for page to load', async () => {
 async function $$(resourceDownloadXpath: string) {
   return browser.$$(resourceDownloadXpath);
 }
+
+When(
+  /^I tap on task with number "([^"]+)"$/,
+  async (taskNumber: string) => {
+    await switchToNativeContext();
+    await basePage.tapTaskByNumber(taskNumber);
+  }
+);
+
+When(
+  'I Filter work order table by {string}',
+  async (searchValue: string) => {
+    await switchToNativeContext();
+    await WorkOrderPage.filterWorkOrderTable(searchValue);
+  }
+);
+
+Then('I select a Failure Class', async () => {
+    await switchToNativeContext();
+    await basePage.selectFailureClass();
+});
+
+Then('I select a Problem Class', async () => {
+    await switchToNativeContext();
+    await basePage.selectProblemClass();
+});
+
+Then('I select a Cause Class', async () => {
+    await switchToNativeContext();
+    await basePage.selectCauseClass();
+});
+
+Then('I select a Remedy Class', async () => {
+    await switchToNativeContext();
+    await basePage.selectRemedyClass();
+});
+

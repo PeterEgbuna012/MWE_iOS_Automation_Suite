@@ -13,9 +13,12 @@ Feature: MWE_RS_035 - Hide Task Completed on Work Order
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -24,7 +27,7 @@ Feature: MWE_RS_035 - Hide Task Completed on Work Order
     Then I navigate "Work" tab
     When I press "TASKS" widget
     Then I take a screenshot
-    When I tap on task with number "10."
+    When I tap on task with number "30."
     # Then "10" page appears
     And I set "comments" value field to "TEST"
     Then I click on "" button
@@ -33,7 +36,7 @@ Feature: MWE_RS_035 - Hide Task Completed on Work Order
     Then I take a screenshot
     When I navigate to "back"
     Then I take a screenshot
-    Then I click on "HIDE COMPLETED TASKS" button
+    Then I click on "Hide Completed Tasks" button
     Then I wait for page to load
     Then I take a screenshot
     When I navigate to "back"
@@ -47,5 +50,5 @@ Feature: MWE_RS_035 - Hide Task Completed on Work Order
     Then I take a screenshot
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

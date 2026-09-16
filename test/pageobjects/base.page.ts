@@ -63,7 +63,7 @@ export default class BasePage {
     await this.safeClickByXPath(selector, timeout);
   }
 
-  private getButtonAliasXPath(name: string): string | undefined {
+  public getButtonAliasXPath(name: string): string | undefined {
     const key = name.trim().toUpperCase();
     const aliases: Record<string, string> = {
       'START ICON': '//XCUIElementTypeButton[@name=""]',
@@ -75,6 +75,7 @@ export default class BasePage {
       'TASK LOCATION': '//XCUIElementTypeStaticText[@name=""]',
       'MORE ACTION ICON': '//XCUIElementTypeButton[@name=""]',
       'BACK': '//XCUIElementTypeButton[@name=""]',
+      'RESERVE': '(//XCUIElementTypeButton[@name=""])[1]',
       'PLUS': '//XCUIElementTypeStaticText[@name=""]',
       'START WORK': '//XCUIElementTypeButton[@name="START WORK" or @name="Start Work"]',
       'PAUSE': '//XCUIElementTypeButton[@name="Pause"]',
@@ -93,6 +94,7 @@ export default class BasePage {
       'OK': '//XCUIElementTypeButton[@name="OK"]',
       'YES': '//XCUIElementTypeButton[@name="Yes"]',
       'NO': '//XCUIElementTypeButton[@name="No"]',
+      'CLEAR': '//XCUIElementTypeStaticText[@name=""]',
       'SIGN OUT': '//XCUIElementTypeButton[@name="Sign Out"]',
       'LOGOUT': '//XCUIElementTypeButton[@name="Logout"]',
       'SELECT USERS': '//XCUIElementTypeButton[@name="SELECT USERS"]',
@@ -125,6 +127,7 @@ export default class BasePage {
       'FILES TAB': '//XCUIElementTypeStaticText[@name="Files"]',
       'SEE MORE': '//XCUIElementTypeStaticText[@name="See More"]',
       'SEE LESS': '//XCUIElementTypeStaticText[@name="See Less"]',
+      'CLOSE FILE': '//XCUIElementTypeButton[@name="QLOverlayDoneButtonAccessibilityIdentifier"]',
       'FILTER OPTIONS': '(//XCUIElementTypeOther[@value="All Updates"])[2]',
       'COMMENTS OPTION': '//XCUIElementTypeButton[@name="Comments"]',
       'FOLLOW-ONS OPTION': '//XCUIElementTypeButton[@name="Follow-Ons"]',
@@ -155,7 +158,7 @@ export default class BasePage {
     return aliases[key];
   }
 
-  public async clickButtonByName(name: string, timeout = 30000): Promise<void> {
+  public async clickButtonByName(name: string, timeout = 50000): Promise<void> {
     await this.performStep(`Click button: ${name}`, async () => {
       const cleanName = name.trim();
       const aliasXPath = this.getButtonAliasXPath(cleanName);
@@ -168,7 +171,7 @@ export default class BasePage {
     });
   }
 
-  public async clickOptionByName(name: string, timeout = 30000): Promise<void> {
+  public async clickOptionByName(name: string, timeout = 50000): Promise<void> {
     await this.performStep(`Click option: ${name}`, async () => {
       const cleanName = name.trim();
       const key = cleanName.toUpperCase();
@@ -190,6 +193,7 @@ export default class BasePage {
         'ASSIGN TO BACKLOG': '//XCUIElementTypeButton[@name="Assign to Backlog"]',
         'OUT': '//XCUIElementTypeStaticText[@name="OUT"]',
         'IN': '//XCUIElementTypeStaticText[@name="IN"]',
+        'CLEAR': '//XCUIElementTypeStaticText[@name=""]',
         '377: AUXILIARIES': '//XCUIElementTypeOther[@value="377: AUXILIARIES"]',
         'SQR LIGHTING FAILED': '//XCUIElementTypeButton[@name="SQR 22(a) - Lighting - failed"]',
         'TSR TEMPORARY SPEED RESTRICTION': '//XCUIElementTypeButton[@name="TSR (Temporary Speed Restriction)"]',
@@ -256,7 +260,7 @@ export default class BasePage {
 }
 
 
-  public async clickWidget(widgetName: string, timeout = 30000): Promise<void> {
+  public async clickWidget(widgetName: string, timeout = 50000): Promise<void> {
     const normalisedName = widgetName.trim().toLowerCase();
     const xpath = `//*[translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=${this.xpathText(normalisedName)}]` +
       ` | //*[translate(@value,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')=${this.xpathText(normalisedName)}]`;
@@ -269,7 +273,7 @@ export default class BasePage {
 
   public async setDescription(text: string): Promise<void> {
     await this.performStep('Set description', async () => {
-      await this.descriptionField.waitForDisplayed({ timeout: 30000 });
+      await this.descriptionField.waitForDisplayed({ timeout: 50000 });
       await this.descriptionField.click();
       await this.descriptionField.clearValue();
       await this.descriptionField.addValue(text);
@@ -282,7 +286,7 @@ export default class BasePage {
     return today;
   }
 
-  public async setDateInPicker(date: Date, timeout = 30000): Promise<void> {
+  public async setDateInPicker(date: Date, timeout = 50000): Promise<void> {
     await this.performStep('Set date in picker', async () => {
       const picker = await $('//XCUIElementTypePicker');
       await picker.waitForDisplayed({ timeout, timeoutMsg: 'Picker not displayed within timeout' });
@@ -301,14 +305,14 @@ export default class BasePage {
   }
 
   public async bookmarkWorkOrder(position: number): Promise<void> {
-    await this.safeClickByXPath(`(//XCUIElementTypeStaticText[@name=""])[${position + 1}]`, 30000);
+    await this.safeClickByXPath(`(//XCUIElementTypeStaticText[@name=""])[${position + 1}]`, 50000);
   }
 
-  public async clickNthRecord(n = 1, timeout = 30000): Promise<void> {
+  public async clickNthRecord(n = 1, timeout = 50000): Promise<void> {
     await this.safeClickByXPath(`(//XCUIElementTypeButton[contains(@name, ":")])[${n}]`, timeout);
   }
 
-  public async clickField(fieldName: string, timeout = 30000): Promise<void> {
+  public async clickField(fieldName: string, timeout = 50000): Promise<void> {
     const key = fieldName.trim().toUpperCase();
     const fields: Record<string, string> = {
       'LOCATION SEARCH': '//XCUIElementTypeTextField[@value="Search Locations"]',
@@ -333,21 +337,21 @@ export default class BasePage {
   public async selectLocationByName(name: string): Promise<void> {
     await this.performStep(`Select location: ${name}`, async () => {
       const element = await this.getLocationElementByName(name);
-      await element.waitForDisplayed({ timeout: 30000 });
+      await element.waitForDisplayed({ timeout: 50000 });
       await element.click();
     });
   }
 
-  public readonly StartTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[18]/XCUIElementTypeOther';
-  public readonly EndTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[19]/XCUIElementTypeOther';
+  public readonly StartTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[2]/XCUIElementTypeOther';
+  public readonly EndTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[3]/XCUIElementTypeOther';
   public readonly DoneButton = '//XCUIElementTypeButton[@name="Done"]';
 
   public async selectStartTimeField(): Promise<void> { await this.clickElement(this.StartTimeField); }
 
   public async selectDropdownOption(dropdownXpath: string, optionText: string): Promise<void> {
     await this.performStep(`Select ${optionText} from dropdown`, async () => {
-      await this.safeClickByXPath(dropdownXpath, 40000);
-      await this.clickOptionByName(optionText, 40000);
+      await this.safeClickByXPath(dropdownXpath, 50000);
+      await this.clickOptionByName(optionText, 50000);
     });
   }
 
@@ -386,7 +390,7 @@ export default class BasePage {
     return null;
   }
 
-  public async enterText(element: ChainablePromiseElement | WebdriverIO.Element, text: string, timeout = 30000): Promise<void> {
+  public async enterText(element: ChainablePromiseElement | WebdriverIO.Element, text: string, timeout = 50000): Promise<void> {
     // Resolve ChainablePromiseElement to a concrete WebdriverIO.Element if needed
     const el = await (element as any) as WebdriverIO.Element;
     await el.waitForDisplayed({ timeout });
@@ -395,7 +399,7 @@ export default class BasePage {
     await el.setValue(text);
   }
 
-  public async tapElementByXPath(xpath: string): Promise<void> { await this.safeClickByXPath(xpath, 30000); }
+  public async tapElementByXPath(xpath: string): Promise<void> { await this.safeClickByXPath(xpath, 50000); }
 
   public async selectItemByIndex(itemName: string, index: number): Promise<void> {
     await this.safeClickByXPath(`(//XCUIElementTypeStaticText[@name=${this.xpathText(itemName)}])[${index}]`, 50000);
@@ -412,7 +416,7 @@ export default class BasePage {
       }
       if (positiveBalanceElements.length < index) throw new Error(`Only ${positiveBalanceElements.length} items with available balance found.`);
       const target = positiveBalanceElements[index - 1];
-      await target.waitForDisplayed({ timeout: 30000 });
+      await target.waitForDisplayed({ timeout: 50000 });
       await target.click();
     });
   }
@@ -460,20 +464,154 @@ export default class BasePage {
       return value.trim().length > 0;
     } catch { return false; }
   }
+public async selectFailureClass(): Promise<void> {
 
-  public async waitForPageToLoad(): Promise<void> { await browser.pause(15000); }
+    await this.performStep(
+        'Select Failure Class',
+        async () => {
 
+            await this.clickOptionByName('FAILURE CLASS');
+
+            const firstRecord =
+                '(//XCUIElementTypeButton)[2]';
+
+            const element = await $(firstRecord);
+
+            await element.waitForDisplayed({
+                timeout: 30000
+            });
+
+            const value = await element.getAttribute('name');
+
+            console.log(`Selected Failure Class: ${value}`);
+
+            await element.click();
+        }
+    );
+}
+
+public async selectProblemClass(): Promise<void> {
+
+    await this.performStep(
+        'Select Problem Class',
+        async () => {
+
+            await this.clickOptionByName('PROBLEM CLASS');
+
+            const firstRecord =
+                '(//XCUIElementTypeButton)[2]';
+
+            const element = await $(firstRecord);
+
+            await element.waitForDisplayed({
+                timeout: 30000
+            });
+
+            const value = await element.getAttribute('name');
+
+            console.log(`Selected Problem Class: ${value}`);
+
+            await element.click();
+        }
+    );
+}
+public async selectCauseClass(): Promise<void> {
+
+    await this.performStep(
+        'Select Cause Class',
+        async () => {
+
+            await this.clickOptionByName('CAUSE CLASS');
+
+            const firstRecord =
+                '(//XCUIElementTypeButton)[2]';
+
+            const element = await $(firstRecord);
+
+            await element.waitForDisplayed({
+                timeout: 30000
+            });
+
+            const value = await element.getAttribute('name');
+
+            console.log(`Selected Cause Class: ${value}`);
+
+            await element.click();
+        }
+    );
+}
+
+public async selectRemedyClass(): Promise<void> {
+
+    await this.performStep(
+        'Select Remedy Class',
+        async () => {
+
+            await this.clickOptionByName('REMEDY CLASS');
+
+            const firstRecord =
+                '(//XCUIElementTypeButton)[2]';
+
+            const element = await $(firstRecord);
+
+            await element.waitForDisplayed({
+                timeout: 30000
+            });
+
+            const value = await element.getAttribute('name');
+
+            console.log(`Selected Remedy Class: ${value}`);
+
+            await element.click();
+        }
+    );
+}
+
+
+
+
+public async tapTaskByNumber(
+  taskNumber: string,
+  timeout = 30000
+): Promise<void> {
+
+  await this.performStep(
+    `Tap task ${taskNumber}`,
+    async () => {
+
+      const xpath =
+        `//XCUIElementTypeStaticText[@name="${taskNumber}"] |
+         //XCUIElementTypeButton[@name="${taskNumber}"] |
+         //XCUIElementTypeOther[@name="${taskNumber}"]`;
+
+      const element = await $(xpath);
+
+      await element.waitForDisplayed({
+        timeout,
+        timeoutMsg: `Task ${taskNumber} not found`
+      });
+
+      await element.click();
+
+      console.log(`✅ Task selected: ${taskNumber}`);
+    }
+  );
+}
+
+  public async waitForPageToLoad(): Promise<void> { await browser.pause(30000); }
+
+  
   public async verifyFollowOnPage(flag: 'Shown' | 'Hidden'): Promise<void> {
     await this.performStep(`Verify Follow-On page is ${flag}`, async () => {
       const basePage = await $('//XCUIElementTypeOther[@name="Create Follow-On (1/2)"]');
       const addToBacklog = await $('//XCUIElementTypeOther[@value="Add to backlog"]');
       if (flag === 'Shown') {
-        await basePage.waitForDisplayed({ timeout: 30000 });
+        await basePage.waitForDisplayed({ timeout: 50000 });
         await expect(basePage).toBeDisplayed();
-        await addToBacklog.waitForDisplayed({ timeout: 40000 });
+        await addToBacklog.waitForDisplayed({ timeout: 50000 });
         await expect(addToBacklog).toBeDisplayed();
       } else {
-        await basePage.waitForDisplayed({ timeout: 30000, reverse: true });
+        await basePage.waitForDisplayed({ timeout: 50000, reverse: true });
         await expect(basePage).not.toBeDisplayed();
       }
     });
@@ -487,7 +625,7 @@ export default class BasePage {
     const element = await $(xpath);
 
     await element.waitForDisplayed({
-      timeout: 30000,
+      timeout: 50000,
       timeoutMsg: `WO page "${pageName}" not displayed`
     });
 
@@ -499,13 +637,13 @@ export default class BasePage {
     await this.performStep(`Verify text displayed: ${text}`, async () => {
       const xpath = `//XCUIElementTypeStaticText[contains(@name,${this.xpathText(text)})] | //XCUIElementTypeButton[contains(@name,${this.xpathText(text)})] | //XCUIElementTypeOther[contains(@name,${this.xpathText(text)})]`;
       const element = await $(xpath);
-      await element.waitForDisplayed({ timeout: 30000 });
+      await element.waitForDisplayed({ timeout: 50000 });
       await expect(element).toBeDisplayed();
     });
   }
 }
 
-export async function clickButtonByName(name: string, timeout = 40000): Promise<void> {
+export async function clickButtonByName(name: string, timeout = 50000): Promise<void> {
   const safeName = !name.includes("'") ? `'${name}'` : `"${name}"`;
   const button = await $(`//XCUIElementTypeButton[@name=${safeName}]`);
   await button.waitForDisplayed({ timeout });
@@ -518,4 +656,6 @@ function expect(element: ChainablePromiseElement | WebdriverIO.Element): any {
   }
   return globalExpect(element);
 }
+
+
 

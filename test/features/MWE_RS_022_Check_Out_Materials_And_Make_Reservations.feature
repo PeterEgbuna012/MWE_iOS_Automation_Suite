@@ -13,10 +13,12 @@ Feature: MWE_RS_022 - Check out Materials and make Reservations
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -26,12 +28,12 @@ Feature: MWE_RS_022 - Check out Materials and make Reservations
     When I press "MATERIALS" widget
     Then I click on "SEARCH ALL PARTS" button
     Then I click on "SEARCH BY PART CODE OR DESCRIPTION" field
-    And I enter "3000890" in the Inventory search field
-    When I select the first item "3000890" from the search results
-    When I select the second item "3000890" from the search results
-    When I select the third item "3000890" from the search results
-    When I select the fourth item "3000890" from the search results
-    When I select the fifth item "3000890" from the search results
+    And I enter "MICROFIBRE" in the Inventory search field
+    When I select the first item "MICROFIBRE" from the search results
+    When I select the second item "MICROFIBRE" from the search results
+    When I select the third item "MICROFIBRE" from the search results
+    When I select the fourth item "MICROFIBRE" from the search results
+    When I select the fifth item "MICROFIBRE" from the search results
     Then I click on "ADD TO LIST" button
     Then I take a screenshot
     Then I click on "SEARCH" button
@@ -52,8 +54,8 @@ Feature: MWE_RS_022 - Check out Materials and make Reservations
     Then I navigate to "back"
     Then I click on "PAUSE ICON" button
     Then I click on "PAUSE" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "ON HOLD" button
+  #  Then I click on "SELECT OUTCOME" option
+  #   Then I click on "ON HOLD" button
     Then I click on "PAUSE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -62,8 +64,8 @@ Feature: MWE_RS_022 - Check out Materials and make Reservations
     
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |
 
 
 

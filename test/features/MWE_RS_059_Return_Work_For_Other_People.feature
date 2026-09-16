@@ -18,7 +18,7 @@ Scenario Outline: Return Work For Other People
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button

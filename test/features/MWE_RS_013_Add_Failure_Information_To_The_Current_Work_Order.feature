@@ -1,7 +1,7 @@
 Feature: MWE_RS_013 - Add Failure Information to the current Work Order
 
   Scenario Outline: Add Failure Information to the current Work Order
-    Given I am on the Init page
+  Given I am on the Init page
     When I set Region select field
     When I set Region as "<country>"
     When I set "<EnvCode>" into Environment Code input field
@@ -17,8 +17,8 @@ Feature: MWE_RS_013 - Add Failure Information to the current Work Order
     Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
-    When I click at "first" WO
-    Then WO page is "Shown"
+    When I click at "second" WO
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -28,21 +28,21 @@ Feature: MWE_RS_013 - Add Failure Information to the current Work Order
     When I press "FAILURE INFORMATION" widget
     Then I wait for page to load
     Then I take a screenshot
-   # Then I click on "FAILURE CLASS" option
-  #  Then I click on "171-SQR-022: HEATING & LIGHTING" button
+    Then I click on "FAILURE CLASS" option
+    Then I click on "171-SQR-022: HEATING & LIGHTING" button
     Then I click on "PROBLEM CLASS" option
-    Then I click on "Pump Faulty" button
+    Then I click on "SQR 22(a) - Lighting - failed" button
     Then I click on "CAUSE CLASS" option
-    Then I click on "Faulty Components" button
+    Then I click on "Service Quality Fault Reported" button
     Then I click on "REMEDY CLASS" option
-    Then I click on "Replaced" button
+    Then I click on "Service Quality Fault Rectified" button
     Then I click on "SAVE" button
     Then I wait for page to load
     Then I take a screenshot
     Then I click on "PAUSE ICON" button
     Then I click on "PAUSE" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "ON HOLD" button
+   #  Then I click on "SELECT OUTCOME" option
+   #  Then I click on "ON HOLD" button
     Then I click on "PAUSE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -50,5 +50,5 @@ Feature: MWE_RS_013 - Add Failure Information to the current Work Order
     
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

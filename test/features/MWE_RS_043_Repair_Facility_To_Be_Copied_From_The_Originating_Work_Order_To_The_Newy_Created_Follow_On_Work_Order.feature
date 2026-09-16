@@ -13,10 +13,12 @@ Scenario Outline: Repair facility to be copied from the originating work order t
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
-    Then I click on "first" WO
-    Then WO page is "Shown"
+    When I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I click on "START ICON" button
     Then I click on "START WORK" button
     Then The status of the work Order is in "In Progress"

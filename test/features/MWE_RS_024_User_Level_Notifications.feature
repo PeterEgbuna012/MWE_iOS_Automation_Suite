@@ -14,17 +14,21 @@ Feature: MWE_RS_024 - User level Notifications
     And I switch to native view context
     And I see allow button
     Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
-    Then I take a screenshot
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I navigate to "notifications"
     Then I take a screenshot
     When I click on "All" filter and select "Unread"
+    Then I take a screenshot
     Then I click on "Unread" filter and select "Read"
-    Then I click on "MARK ALL AS READ" button
+    Then I take a screenshot
+    Then I click on "Read" filter and select "All"
+    Then I take a screenshot
+    Then I click on "Mark All As Read" button
     Then I take a screenshot
     Then I navigate to "back"
     When I navigate to "back"
@@ -32,5 +36,5 @@ Feature: MWE_RS_024 - User level Notifications
     Then I take a screenshot
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

@@ -1,12 +1,12 @@
-import { $, $$, expect } from '@wdio/globals';
+import { $, $$, browser, expect } from '@wdio/globals';
 import type { ChainablePromiseElement } from 'webdriverio';
 import BasePage from './base.page.js';
 
 class WorkOrderPage extends BasePage {
   public readonly addManualTimeEntryButton = '//XCUIElementTypeButton[@name="Add Manual Time Entry"]';
   public readonly addManualTimeEntryBtnAllCaps = '//XCUIElementTypeButton[@name="ADD MANUAL TIME ENTRY"]';
-  public readonly StartTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[18]/XCUIElementTypeOther';
-  public readonly EndTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[19]/XCUIElementTypeOther';
+  public readonly StartTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[2]/XCUIElementTypeOther';
+  public readonly EndTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[3]/XCUIElementTypeOther';
   public readonly DoneButton = '//XCUIElementTypeButton[@name="Done"]';
   public readonly ReturnStartTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[18]/XCUIElementTypeOther';
   public readonly ReturnEndTimeField = '//XCUIElementTypeOther[@name="Mobile Work Execution"]/XCUIElementTypeOther[19]/XCUIElementTypeOther';
@@ -214,6 +214,20 @@ class WorkOrderPage extends BasePage {
     const actualText = await element.getText();
     if (actualText !== expectedValue) throw new Error(`Time log mismatch: expected "${expectedValue}", but found "${actualText}"`);
   }
+
+
+  public workOrderSearchBar =
+    '//XCUIElementTypeTextField[@value="Search Work Orders"]';
+
+public async filterWorkOrderTable(searchValue: string): Promise<void> {
+
+    await this.clickElement(this.workOrderSearchBar, 100000);
+
+    const searchField = await $(this.workOrderSearchBar);
+
+    await searchField.clearValue();
+    await searchField.setValue(searchValue);
+}
 }
 
 export default new WorkOrderPage();

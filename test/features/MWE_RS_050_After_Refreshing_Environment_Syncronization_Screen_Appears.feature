@@ -17,9 +17,12 @@ Scenario Outline: After refreshing environment synchronization screen appears
     Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
+    Then I take a screenshot
+    When I click on "Reject" button
+    Then The Worklist page is open
     Then I take a screenshot 
     
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

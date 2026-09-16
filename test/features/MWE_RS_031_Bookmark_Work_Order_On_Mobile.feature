@@ -13,6 +13,8 @@ Feature: MWE_RS_031 - Bookmark Work Order on mobile
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     Then I click on "BOOKMARK ICON" button
@@ -38,5 +40,5 @@ Feature: MWE_RS_031 - Bookmark Work Order on mobile
 
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | yinka.oludipe@keolisameydlr.co.uk | yo2026!! |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

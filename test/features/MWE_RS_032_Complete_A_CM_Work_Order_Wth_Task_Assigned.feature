@@ -18,39 +18,43 @@ Feature: MWE_RS_032 - Complete a CM Work Order with Task Assigned
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
     Then The status of the work Order is in "In Progress"
     Then I take a screenshot
     Then I navigate "Work" tab
-    Then "FAILURE INFORMATION" widget is clicked
+    When I press "FAILURE INFORMATION" widget
     Then I wait for page to load
     Then I take a screenshot
-   # Then I click on "FAILURE CLASS" option
-  #  Then I click on "171-SQR-022: HEATING & LIGHTING" button
+    Then I click on "FAILURE CLASS" option
+    Then I click on "171-SQR-022: HEATING & LIGHTING" button
     Then I click on "PROBLEM CLASS" option
-    Then I click on "Controller Defective" button
+    Then I click on "SQR 22(a) - Lighting - failed" button
     Then I click on "CAUSE CLASS" option
-    Then I click on "Faulty Components" button
+    Then I click on "Service Quality Fault Reported" button
     Then I click on "REMEDY CLASS" option
-    Then I click on "Replaced" button
+    Then I click on "Service Quality Fault Rectified" button
     Then I click on "SAVE" button
+    Then I take a screenshot
     Then I click on "MORE ACTION ICON" button
     Then I click on "ADD COMMENT" button
     Then I click on "TYPE FIELD" button
     Then I click on "UPDATE" button
     And I set "Summary" value field to "KAD MWE  1.13.0 TESTING"
     And I set "Details" value field to "KAD MWE  1.13.0 TESTING"
+    Then I take a screenshot
     Then I click on "ADD COMMENT BUTTON" button
     When I press "TASKS" widget
+    Then I take a screenshot
     When I tap on task with number "10."
     And I set "comments" value field to "KAD MWE  1.13.0 TESTING"
     Then I click on "" button
     When I click on "SIGN & COMPLETE" button
     Then I take a screenshot
     When I navigate to "back"
+    Then I take a screenshot
     When I tap on task with number "20."
     And I set "measurement input" value field to "1500"
     And I set "comments" value field to "KAD MWE  1.13.0 TESTING"
@@ -61,8 +65,8 @@ Feature: MWE_RS_032 - Complete a CM Work Order with Task Assigned
     When I navigate to "back" 
     Then I click on "PAUSE ICON" button
     When I click on "Complete" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "PERMANENT FIX" button
+  #  Then I click on "SELECT OUTCOME" option
+  #  Then I click on "PERMANENT FIX" button
     Then I click on "COMPLETE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -70,5 +74,5 @@ Feature: MWE_RS_032 - Complete a CM Work Order with Task Assigned
   
 
   Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

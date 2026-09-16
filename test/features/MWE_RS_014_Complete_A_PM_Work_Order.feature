@@ -1,7 +1,7 @@
 Feature: MWE_RS_014 - Complete a PM Work Order
 
   Scenario Outline: Complete a PM Work Order
-   Given I am on the Init page
+  Given I am on the Init page
     When I set Region select field
     When I set Region as "<country>"
     When I set "<EnvCode>" into Environment Code input field
@@ -13,10 +13,12 @@ Feature: MWE_RS_014 - Complete a PM Work Order
     And I click on "Sign In" button
     And I switch to native view context
     And I see allow button
+    Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I click on "START ICON" button
     Then I click on "START WORK" button
     Then The status of the work Order is in "In Progress"
@@ -35,5 +37,5 @@ Feature: MWE_RS_014 - Complete a PM Work Order
     #Then WO page is "Not Shown"
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

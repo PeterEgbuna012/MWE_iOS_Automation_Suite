@@ -23,7 +23,7 @@ export const config: WebdriverIO.Config = {
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
     //
-    specs: ['./test/features/MWE_RS_001_Login_Logout.feature'],
+    specs: ['./test/features/MWE_RS_049_Expanded_Contracted_Long_Photo_Descriptions_In_Files.feature'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -62,7 +62,7 @@ export const config: WebdriverIO.Config = {
     'appium:udid': '00008142-001C51601198401C',
     'appium:xcodeOrgId': 'GGQY3K0VC9',
     'appium:xcodeSigningId': 'Apple Development',
-    "appium:app":"/Users/MWE-PROJECT/mobile-work-execution.ipa",
+    "appium:app":"/Users/MWE_iOS_Automation_Suite/mobile-work-execution.ipa",
     'appium:appname': 'MWE', 
     'appium:safariAllowPopups': true,
     'appium:unexpectedAlertBehaviour': 'accept',

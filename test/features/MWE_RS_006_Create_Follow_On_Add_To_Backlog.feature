@@ -17,8 +17,8 @@ Feature: MWE_RS_006 - Create Follow On Work Order Add To Backlog
     Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
-    Then I click on "first" WO
-    Then WO page is "Shown"
+    Then I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -30,23 +30,25 @@ Feature: MWE_RS_006 - Create Follow On Work Order Add To Backlog
     Then I click on "Add to backlog" outcome and select "Add to backlog"
     Then I verify location field is populated
     Then I click on "SELECT A TEMPLATE" button
-    Then I click on "Assign to Backlog" button
+    Then I click on "377 Auxillaries" button
     Then I take a screenshot
     Then I click on "NEXT" button
     Then I wait for page to load
+   # Then I click on "FAILURE CLASS" option
+   # Then I select Failure Class
     Then I click on "PROBLEM CLASS" option
-    Then I click on "CFR036 - Passenger Doors Issue" button
+    Then I click on "SQR 22(a) - Lighting - failed" button
     Then I click on "CAUSE CLASS" option
-    Then I click on "Burnt" button
+    Then I click on "Service Quality Fault Reported" button
     Then I click on "REMEDY CLASS" option
-    Then I click on "Replaced (Like For Like)" button
+    Then I click on "Service Quality Fault Rectified" button
     Then I click on "" button
     Then I click on "CREATE FOLLOW-ON" button
     Then I take a screenshot
     Then I click on "PAUSE ICON" button
     Then I click on "PAUSE" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "ON HOLD" button
+   #  Then I click on "SELECT OUTCOME" option
+  #   Then I click on "ON HOLD" button
     Then I click on "PAUSE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -60,5 +62,5 @@ Feature: MWE_RS_006 - Create Follow On Work Order Add To Backlog
     Then The Worklist page is open
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

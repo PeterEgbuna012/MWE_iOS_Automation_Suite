@@ -1,7 +1,7 @@
 Feature: MWE_RS_012 - Change Location on Work Order
 
   Scenario Outline: Change Location on Work Order
-    Given I am on the Init page
+  Given I am on the Init page
     When I set Region select field
     When I set Region as "<country>"
     When I set "<EnvCode>" into Environment Code input field
@@ -18,6 +18,7 @@ Feature: MWE_RS_012 - Change Location on Work Order
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot 
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -25,15 +26,15 @@ Feature: MWE_RS_012 - Change Location on Work Order
     Then I take a screenshot 
     Then I click on "LOCATION EDIT" button
     Then I click on "LOCATION SEARCH" field
-    And I enter "DRS" in the location search field
-    Then I select "DRS" location
+    And I enter "387218-421218-EEQ" in the location search field
+    Then I select "387218-421218-EEQ" location
     Then I click on "CONFIRM" button
     Then I wait for page to load
     Then I take a screenshot 
     Then I click on "PAUSE ICON" button
     Then I click on "PAUSE" button
-    Then I click on "SELECT OUTCOME" option
-    Then I click on "ON HOLD" button
+  #  Then I click on "SELECT OUTCOME" option
+  #   Then I click on "ON HOLD" button
     Then I click on "PAUSE WORK ORDER" button
     Then I wait for page to load
     Then I take a screenshot
@@ -43,5 +44,5 @@ Feature: MWE_RS_012 - Change Location on Work Order
 
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

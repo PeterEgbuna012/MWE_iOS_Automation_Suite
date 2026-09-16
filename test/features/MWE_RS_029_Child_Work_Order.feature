@@ -14,10 +14,11 @@ Feature: MWE_RS_029 - Child Work Order
     And I switch to native view context
     And I see allow button
     Then I wait for page to load
+    Then I take a screenshot
     When I click on "Reject" button
     Then The Worklist page is open
     When I click at "first" WO
-    Then WO page is "Shown"
+    Then WO page is "Mobile Work Execution"
     Then I take a screenshot
     Then I click on "START ICON" button
     Then I click on "START WORK" button
@@ -29,7 +30,7 @@ Feature: MWE_RS_029 - Child Work Order
     Then I wait for page to load
     Then I take a screenshot
     Then I navigate "Work" tab
-    Then I click on "TIME ENTRIES" widget
+    When I press "TIME ENTRIES" widget
     Then I wait for page to load
     Then I take a screenshot
     Then I navigate to "back"
@@ -39,5 +40,5 @@ Feature: MWE_RS_029 - Child Work Order
     
 
   Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+      | country | EnvCode        | username | password |
+      | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |
