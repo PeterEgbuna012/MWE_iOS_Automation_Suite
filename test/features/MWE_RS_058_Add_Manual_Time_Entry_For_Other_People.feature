@@ -52,5 +52,5 @@ Feature: MWE_RS_058 - Add Manual Time Entry For Other People
     
 
   Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+    | country | EnvCode        | username | password |
+    | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

@@ -72,5 +72,5 @@ Feature: MWE_RS_061 - Complete a CMP Work Order From MWE
   
 
     Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+    | country | EnvCode        | username | password |
+    | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |

@@ -42,5 +42,5 @@ Feature: MWE_RS_057 - Capture Time For Other People
     
 
   Examples:
-    | country | EnvCode | username | password |
-    | Europe  | polite-lion-52 | craig.fisher@keolisameydlr.co.uk | Maximo2026 |
+    | country | EnvCode        | username | password |
+    | Europe  | lucky-liger-8  | ian.scott@gtrailway.com | maximo  |
